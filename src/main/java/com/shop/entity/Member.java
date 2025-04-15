@@ -10,10 +10,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Entity
 @Table
-@Getter
-@Setter
+@Getter @Setter
 @ToString
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @Column(name="member_id")
