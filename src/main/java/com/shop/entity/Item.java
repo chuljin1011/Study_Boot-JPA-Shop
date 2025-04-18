@@ -37,9 +37,10 @@ public class Item extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus;      //상품 판매 상태
 
-    private LocalDateTime regTime;              //등록 시간
+    /* Audit로 대체 */
+    //private LocalDateTime regTime;              //등록 시간
 
-    private LocalDateTime updateTime;           //수정 시간
+    //private LocalDateTime updateTime;           //수정 시간
 
     public void updateItem(ItemFormDto itemFormDto) {
         this.itemNm = itemFormDto.getItemNm();
