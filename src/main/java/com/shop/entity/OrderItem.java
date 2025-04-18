@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter @Setter
-public class OrderItem {
+public class OrderItem extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "order_item_id")
@@ -30,4 +30,17 @@ public class OrderItem {
 
     //private LocalDateTime updateTime; //audit로 대체
 
+    public static OrderItem createOrderItem(Item item, int count) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setCount(count);
+        orderItem.setOrderPrice(item.getPrice());
+
+        item.removeStock(count);
+        return orderItem;
+    }
+
+    public int getTotalPrice() {
+        return orderPrice * count;
+    }
 }
